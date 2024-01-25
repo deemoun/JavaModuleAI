@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.deemoun'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.17.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.6.3'
+}
+
+test {
+    useJUnitPlatform()
+}
