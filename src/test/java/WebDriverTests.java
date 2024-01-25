@@ -1,3 +1,5 @@
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class YourTestClass {
+public class WebDriverTests {
 
     private WebDriver driver;
 
@@ -32,6 +34,13 @@ public class YourTestClass {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
         WebElement element2 = driver.findElement(By.id("submit"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
+    }
+
+    // Write a Unit Test here that checks if the page title is correct
+    @Test
+    public void testPageTitle() {
+        driver.get("https://demoqa.com/automation-practice-form");
+        assertEquals("Automation Practice Form", driver.getTitle());
     }
 
     @AfterEach
